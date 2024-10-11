@@ -62,7 +62,7 @@ export default function ThemedBottomSheetView({ currentItem, setCurrentItem, sav
                         index: currentItem ? currentItem.index : undefined,
                     });
                     setSaveCurrentItem(false);
-                    EventRegister.emit('closeBottomSheet');
+                    EventRegister.emit('closeBottomSheet', null);
                 },
                 style: 'destructive',
             }
@@ -72,7 +72,7 @@ export default function ThemedBottomSheetView({ currentItem, setCurrentItem, sav
     function itemCompletionHandler() {
         console.log(currentItem, 'is complete');
         EventRegister.emit('completeItem', currentItem);
-        EventRegister.emit('closeBottomSheet');
+        EventRegister.emit('closeBottomSheet', null);
     }
 
     if (!currentItem)

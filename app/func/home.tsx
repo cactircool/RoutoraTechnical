@@ -11,7 +11,7 @@ import 'react-native-get-random-values'
 import ThemedBottomSheet from '@/components/ThemedBottomSheet'
 import { Ionicons } from '@expo/vector-icons'
 import { useUserContext } from '@/hooks/useUserContext'
-import { requestForegroundPermissionsAsync } from 'expo-location'
+import { getCurrentPositionAsync, requestForegroundPermissionsAsync } from 'expo-location'
 
 // DateTimePickerAndroid.open(AndroidNativeProps)
 // DateTimePickerAndroid.dismiss(mode: AndroidNativeProps['mode'])
@@ -40,14 +40,14 @@ export default function Home() {
             return;
     
         // TODO: uncomment
-        // let location = await getCurrentPositionAsync({});
-        let location = {
-            coords: {
-                latitude: 37.422131, 
-                longitude: -122.084801,
-                altitude: 0,
-            }
-        }
+        let location = await getCurrentPositionAsync({});
+        // let location = {
+        //     coords: {
+        //         latitude: 37.422131, 
+        //         longitude: -122.084801,
+        //         altitude: 0,
+        //     }
+        // }
         setLocation({
             latitude: location.coords.latitude,
             longitude: location.coords.longitude,
