@@ -1,6 +1,12 @@
-# Welcome to your Expo app 👋
+# Routora technical github
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+This is a simple todo list app with locations attached to each todo item. The app dynamically uses and updates information from a firebase backend.
+
+The idea is that each todo list item can also have a location attached so that items can be seen on the map as clusters. Clicking on an item opens a slide up modal to update information, complete, or delete the item.
+
+The second page is a list page which lists all completed and incomplete todolist items ordered by their proximity to the current location. (Note that a simulator's current location (at least on mac) is either in (Apple/Google) HQ, or a random spot in the Pacific Ocean)
+
+This app also uses user authentication with usernames and passwords. Currently registration requires an email and phone number as well, but I had no use for that other than future proofing for something like a newsletter or reminder text.
 
 ## Get started
 
@@ -24,27 +30,3 @@ In the output, you'll find options to open the app in a
 - [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
 
 You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
-
-## Get a fresh project
-
-When you're ready, run:
-
-```bash
-npm run reset-project
-```
-
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
-
-## Learn more
-
-To learn more about developing your project with Expo, look at the following resources:
-
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
-
-## Join the community
-
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
