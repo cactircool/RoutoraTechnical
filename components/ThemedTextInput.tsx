@@ -1,34 +1,22 @@
-import { Text, type TextProps, StyleSheet } from 'react-native';
-import { Roboto_100Thin, Roboto_100Thin_Italic, Roboto_300Light, Roboto_300Light_Italic, Roboto_400Regular, Roboto_400Regular_Italic, Roboto_500Medium, Roboto_500Medium_Italic, Roboto_700Bold, Roboto_700Bold_Italic, Roboto_900Black, Roboto_900Black_Italic } from "@expo-google-fonts/dev";
+import { Text, type TextProps, StyleSheet, TextInputProps, TextInput, Platform } from 'react-native';
 
 import { useThemeColor } from '@/hooks/useThemeColor';
 import { useTheme } from '@react-navigation/native';
-import { light as LightTheme, dark as DarkTheme } from '@/constants/Themes';
 
-export type ThemedTextProps = TextProps & {
+export type ThemedTextInputProps = TextInputProps & {
   type?: 'default' | 'title' | 'defaultSemiBold' | 'subtitle' | 'link';
-  flip?: boolean;
 };
 
-export function ThemedText({
+export function ThemedTextInput({
   style,
+  placeholderTextColor,
   type = 'default',
-  flip = false,
   ...rest
-}: ThemedTextProps) {
-  let { dark, colors } = useTheme();
-  if (flip) {
-    if (dark) {
-      dark = false;
-      colors = LightTheme.colors;
-    } else {
-      dark = true;
-      colors = DarkTheme.colors;
-    }
-  }
+}: ThemedTextInputProps) {
+  const { dark, colors } = useTheme();
 
   return (
-    <Text
+    <TextInput
       style={[
         { color: colors.text },
         type === 'default' ? styles.default : undefined,
@@ -38,6 +26,7 @@ export function ThemedText({
         type === 'link' ? styles.link : undefined,
         style,
       ]}
+      placeholderTextColor={placeholderTextColor ?? Platform.OS === 'android' ? colors.border : undefined }
       {...rest}
     />
   );

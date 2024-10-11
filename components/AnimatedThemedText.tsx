@@ -3,32 +3,21 @@ import { Roboto_100Thin, Roboto_100Thin_Italic, Roboto_300Light, Roboto_300Light
 
 import { useThemeColor } from '@/hooks/useThemeColor';
 import { useTheme } from '@react-navigation/native';
-import { light as LightTheme, dark as DarkTheme } from '@/constants/Themes';
+import Animated, { useAnimatedStyle, useSharedValue, withSpring, withTiming } from 'react-native-reanimated'
 
-export type ThemedTextProps = TextProps & {
+export type AnimatedThemedTextProps = TextProps & {
   type?: 'default' | 'title' | 'defaultSemiBold' | 'subtitle' | 'link';
-  flip?: boolean;
 };
 
-export function ThemedText({
+export function AnimatedThemedText({
   style,
   type = 'default',
-  flip = false,
   ...rest
-}: ThemedTextProps) {
-  let { dark, colors } = useTheme();
-  if (flip) {
-    if (dark) {
-      dark = false;
-      colors = LightTheme.colors;
-    } else {
-      dark = true;
-      colors = DarkTheme.colors;
-    }
-  }
+}: AnimatedThemedTextProps) {
+  const { dark, colors } = useTheme();
 
   return (
-    <Text
+    <Animated.Text
       style={[
         { color: colors.text },
         type === 'default' ? styles.default : undefined,
