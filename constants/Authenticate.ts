@@ -26,7 +26,7 @@ export interface User {
     items: ToDoItem[]
 }
 
-export const API_KEY = 'AIzaSyC45mE7IUDG2olhOLkqXM_alTJMrYVIHAk';
+export const API_KEY = 'enter_api_key';
 
 const firebaseConfig = {
     apiKey: "AIzaSyAZ8d4Gea5tdTNxR1IiK0LQMHDBQYvEb0Y",
